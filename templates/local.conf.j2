@@ -1,0 +1,45 @@
+# The ``localrc`` section replaces the old ``localrc`` configuration file.
+# Note that if ``localrc`` is present it will be used in favor of this section.
+[[local|localrc]]
+
+SERVICE_TOKEN={{ devstack_openrc_password }}
+ADMIN_PASSWORD={{ devstack_openrc_password }}
+MYSQL_PASSWORD={{ devstack_openrc_password }}
+RABBIT_PASSWORD={{ devstack_openrc_password }}
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-13
+enable_service q-meta
+enable_service tempest
+
+ERROR_ON_CLONE=False
+
+LOGFILE=$DEST/logs/stack.sh.log
+LOGDAYS=2
+LOG_COLOR=True
+
+# Using milestone-proposed branches
+# ---------------------------------
+
+# Uncomment these to grab the milestone-proposed branches from the repos:
+#CINDER_BRANCH=milestone-proposed
+#GLANCE_BRANCH=milestone-proposed
+#HORIZON_BRANCH=milestone-proposed
+#KEYSTONE_BRANCH=milestone-proposed
+#KEYSTONECLIENT_BRANCH=milestone-proposed
+#NOVA_BRANCH=milestone-proposed
+#NOVACLIENT_BRANCH=milestone-proposed
+#NEUTRON_BRANCH=milestone-proposed
+#SWIFT_BRANCH=milestone-proposed
+
+# FIXME: randomize this...
+SWIFT_HASH=66a3d6b56c1f479c8b4e70ab5c2000f5
+
+# For development purposes the default of 3 replicas is usually not required.
+# Set this to 1 to save some resources:
+SWIFT_REPLICAS=1
+

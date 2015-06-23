@@ -1,15 +1,9 @@
 ---
-- name: Install prerequisite system packages
-  yum:
-     name: "{{ item }}"
-  with_items:
-    - git
-    - gcc
-    - python-devel
-    - python-setuptools
+- include: rhel.yml
+  when: ansible_os_family == 'RedHat'
 
-- name: Install pip
-  command: easy_install pip
+- include: ubuntu.yml
+  when: ansible_os_family == 'Debian'
 
 - name: Ensure wheel group exists
   group: name=wheel state=present system=yes
@@ -33,20 +27,19 @@
   sudo: true
   sudo_user: stack
   git:
-    repo: https://git.openstack.org/openstack-dev/devstack
-    dest: ~/devstack
+    repo: 'https://git.openstack.org/openstack-dev/devstack'
+    dest: '~/devstack'
 
-- name: Copy over local.conf
+- name: Set up local.conf
   sudo: true
   sudo_user: stack
   template:
     src: local.conf.j2
-    dest: ~/devstack/local.conf
-
-  # TODO: Figure out the proper setup for devstack
-  # localrc setup
+    dest: '~/devstack/local.conf'
 
 - name: Run the stack.sh script
   sudo: true
   sudo_user: stack
-  shell: "cd devstack && ./stack.sh 2>&1 | tee stack_run.log"
+  shell: "./stack.sh 2>&1 | tee stack_run.log"
+  args:
+    chdir: '~/devstack'

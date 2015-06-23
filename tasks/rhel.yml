@@ -1,0 +1,12 @@
+---
+- name: Install prerequisite system packages
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - git
+    - gcc
+    - python-devel
+    - python-setuptools
+
+- name: Install pip
+  command: easy_install pip

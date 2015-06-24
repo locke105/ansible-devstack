@@ -1,0 +1,32 @@
+---
+- name: Install prerequisite system packages
+  apt:
+    name: "{{ item }}"
+    cache_valid_time: 3600
+    update_cache: true
+  with_items:
+    - git
+    - build-essential
+    - python-dev
+    - python-setuptools
+
+- name: Run get-pip.py
+  shell: curl https://bootstrap.pypa.io/get-pip.py | python
+
+- name: Clone devstack
+  sudo: false
+  git:
+    repo: 'https://git.openstack.org/openstack-dev/devstack'
+    dest: '~/devstack'
+
+- name: Set up local.conf
+  sudo: false
+  template:
+    src: local.conf.j2
+    dest: '~/devstack/local.conf'
+
+- name: Run the stack.sh script
+  sudo: false
+  shell: "./stack.sh 2>&1 | tee stack_run.log"
+  args:
+    chdir: '~/devstack'

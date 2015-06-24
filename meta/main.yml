@@ -3,16 +3,16 @@ galaxy_info:
   author: Mathew Odden
   description: An Ansible role to deploy DevStack to a host
   company: IBM Corp.
-  license: Apache2
+  license: Apache
   min_ansible_version: 1.2
   platforms:
-  - name: EL
-    versions:
-    - 6
-  - name: Ubuntu
-    versions:
-    - trusty
+    - name: EL
+      versions:
+        - 6
+    - name: Ubuntu
+      versions:
+        - trusty
   categories:
-  - cloud
-  - development
+    - cloud
+    - development
 dependencies: []

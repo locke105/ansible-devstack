@@ -22,7 +22,7 @@
 - name: Set up local.conf
   sudo: false
   template:
-    src: {{ template_file }}
+    src: "{{ template_file }}"
     dest: '~/devstack/local.conf'
 
 - name: Run the stack.sh script

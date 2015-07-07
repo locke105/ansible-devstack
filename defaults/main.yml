@@ -1,2 +1,3 @@
 ---
 devstack_openrc_password: password
+template_file: local.conf.j2

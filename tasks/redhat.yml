@@ -40,7 +40,7 @@
   sudo: true
   sudo_user: stack
   template:
-    src: local.conf.j2
+    src: "{{ template_file }}"
     dest: '~/devstack/local.conf'
 
 - name: Run the stack.sh script

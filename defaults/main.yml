@@ -1,3 +1,42 @@
 ---
 devstack_openrc_password: password
 template_file: local.conf.j2
+
+CEILOMETER_REPO: git://git.openstack.org/openstack/ceilometer.git
+CEILOMETER_BRANCH: master
+
+CINDER_REPO: git://git.openstack.org/openstack/cinder.git
+CINDER_BRANCH: master
+
+GLANCE_REPO: git://git.openstack.org/openstack/glance.git
+GLANCE_BRANCH: master
+
+HEAT_REPO: git://git.openstack.org/openstack/heat.git
+HEAT_BRANCH: master
+
+HORIZON_REPO: git://git.openstack.org/openstack/horizon.git
+HORIZON_BRANCH: master
+
+KEYSTONE_REPO: git://git.openstack.org/openstack/keystone.git
+KEYSTONE_BRANCH: master
+
+NEUTRON_REPO: git://git.openstack.org/openstack/neutron.git
+NEUTRON_BRANCH: master
+
+NOVA_REPO: git://git.openstack.org/openstack/nova.git
+NOVA_BRANCH: master
+
+TEMPEST_REPO: git://git.openstack.org/openstack/tempest.git
+TEMPEST_BRANCH: master
+
+CINDERCLIENT_REPO: git://git.openstack.org/openstack/python-cinderclient.git
+CINDERCLIENT_BRANCH: master
+
+GLANCECLIENT_REPO: git://git.openstack.org/openstack/python-glanceclient.git
+GLANCECLIENT_BRANCH: master
+
+KEYSTONECLIENT_REPO: git://git.openstack.org/openstack/python-keystoneclient.git
+KEYSTONECLIENT_BRANCH: master
+
+NOVACLIENT_REPO: git://git.openstack.org/openstack/python-novaclient.git
+NOVACLIENT_BRANCH: master

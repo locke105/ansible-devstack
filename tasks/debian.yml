@@ -30,3 +30,9 @@
   shell: "./stack.sh 2>&1 | tee stack_run.log"
   args:
     chdir: '~/devstack'
+    
+- name: Fetch stack.sh log file
+  fetch:
+    src: ~/devstack/stack_run.log
+    dest: "{{ run_directory }}"/logs/"
+    flat: yes 

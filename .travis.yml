@@ -5,5 +5,4 @@ python:
 install: "pip install -U ansible"
 sudo: false
 script:
-  - ansible-playbook --syntax-check -i hosts.sample devstack.yaml.sample -e "ansible_os_family=debian"
-  - ansible-playbook --syntax-check -i hosts.sample devstack.yaml.sample -e "ansible_os_family=redhat"
+  - ./run_tests.sh

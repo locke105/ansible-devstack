@@ -1,0 +1,5 @@
+---
+- name: devstack sample play
+  hosts: devstack
+  roles:
+    - { role: "./"}

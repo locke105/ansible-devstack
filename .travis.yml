@@ -1,0 +1,10 @@
+---
+language: python
+python:
+  - "2.7"
+install: "pip install -U ansible"
+sudo: required
+script:
+  - echo -e "[devstack]\nlocalhost ansible_sudo=true" > travis_host
+  - 'echo -e "---\n- name: devstack sample task\n  hosts: devstack\n  roles:\n  - { role: \"./\"}" > devstack.yaml.sample'
+  - ansible-playbook --syntax-check -i travis_host devstack.yaml.sample

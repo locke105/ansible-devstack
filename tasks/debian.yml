@@ -27,6 +27,8 @@
 
 - name: Run the stack.sh script
   sudo: false
-  shell: "./stack.sh 2>&1 | tee stack_run.log"
+  shell:  | 
+        ./stack.sh 2>&1 | tee stack_run.log
+        exit ${PIPESTATUS[0]}
   args:
     chdir: '~/devstack'

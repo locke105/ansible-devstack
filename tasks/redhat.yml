@@ -51,3 +51,4 @@
     exit ${PIPESTATUS[0]}
   args:
     chdir: '~/devstack'
+    executable: '/bin/bash'

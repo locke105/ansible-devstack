@@ -25,6 +25,13 @@
     src: "{{ template_file }}"
     dest: '~/devstack/local.conf'
 
+- name: Copy over local.sh
+  sudo: false
+  copy:
+    src: "{{ local_sh_file }}"
+    dest: '~/devstack/local.sh'
+  when: local_sh_file is defined
+
 - name: Run the stack.sh script
   sudo: false
   shell: |

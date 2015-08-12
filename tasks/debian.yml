@@ -40,3 +40,6 @@
   args:
     chdir: '~/devstack'
     executable: '/bin/bash'
+  register: devstack_result
+  ignore_errors: yes
+  no_log: true 

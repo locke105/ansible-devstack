@@ -54,7 +54,7 @@
   sudo: true
   sudo_user: stack
   shell: |
-    ./stack.sh 2>&1 | tee stack_run.log
+    ./stack.sh 2>&1
     exit ${PIPESTATUS[0]}
   args:
     chdir: '~/devstack'

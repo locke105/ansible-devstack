@@ -34,10 +34,8 @@
 
 - name: Run the stack.sh script
   sudo: false
-  shell: |
-    ./stack.sh
-    exit ${PIPESTATUS[0]}
-  args:
+  shell: ./stack.sh
+    args:
     chdir: '~/devstack'
     executable: '/bin/bash'
   register: devstack_result

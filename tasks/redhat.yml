@@ -53,9 +53,10 @@
 - name: Run the stack.sh script
   sudo: true
   sudo_user: stack
-  shell: |
-    ./stack.sh 2>&1 | tee stack_run.log
-    exit ${PIPESTATUS[0]}
+  shell: ./stack.sh
   args:
     chdir: '~/devstack'
     executable: '/bin/bash'
+  register: devstack_result
+  ignore_errors: yes
+  no_log: true
